@@ -41,4 +41,15 @@ public class UserRegistation {
 		return m.matches();
 	}
 
+	// Validate Phone Number Giving Space
+	public boolean phoneNumber(String str) {
+		String phoneNumber = str;
+		String regex = "(91)[: :][9][0-9]{9}";
+		Pattern p = Pattern.compile(regex);
+		if (phoneNumber == null) {
+			return false;
+		}
+		Matcher m = p.matcher(phoneNumber);
+		return m.matches();
+	}
 }

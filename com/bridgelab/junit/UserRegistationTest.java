@@ -37,4 +37,12 @@ public class UserRegistationTest {
 		assertEquals(excepted, result);
 	}
 
+	// Validate Phone Number Giving Space
+	@Test
+	public void phoneNumberTest() {
+		String str = "91 9919819801";
+		boolean result = user.phoneNumber(str);
+		boolean excepted = true;
+		assertEquals(excepted, result);
+	}
 }
