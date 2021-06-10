@@ -65,4 +65,21 @@ public class UserRegistationTest {
 		boolean excepted = true;
 		assertEquals(excepted, result);
 	}
+	//Validate First,Last Name Email,Mobile and Password With Message
+	@Test
+	public void validateUserEntryDataWithMessageTest() {
+		System.out.println("Enter First Name::");
+		String firstName= sc.nextLine();
+		System.out.println("Enter First Name::");
+		String lastName= sc.nextLine();
+		System.out.println("Enter Email::");
+		String email= sc.nextLine();
+		System.out.println("Enter Mobile Number::");
+		String mobileNumber= sc.nextLine();
+		System.out.println("Enter Password::");
+		String password= sc.nextLine();
+		String result = user.validateUserEntryDataWithMessage(firstName,lastName,email,mobileNumber,password);
+		String excepted ="Happy";
+		assertEquals(excepted, result);
+	}
 }

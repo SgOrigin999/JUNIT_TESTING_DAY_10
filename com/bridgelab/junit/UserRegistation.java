@@ -74,12 +74,20 @@ public class UserRegistation {
 			return false;
 		}
 		Matcher m = p.matcher(email);
-		boolean result = m.matches();
-		if (result == true) {
-			System.out.println("Email is Valid::" + email);
-		} else {
-			System.out.println("Email is Not Valid::" + email);
-		}
 		return m.matches();
+	}
+	//Validate First,Last Name Email,Mobile and Password With Message
+	public String validateUserEntryDataWithMessage(String firstName, String lastName, String email, String mobileNumber,
+			String password) {
+		String fName=firstName;
+		String lName=lastName;
+		String emaild=email;
+		String mNumber=mobileNumber;
+		String userPassword=password;
+		if(validateFirstName(fName) & validateLasttName(lName) & emailValidation(emaild) & phoneNumber(mNumber) & passwordValidation(userPassword)) {
+			return "Happy";
+		}else {
+		return "Sad";	
+		}
 	}
 }
