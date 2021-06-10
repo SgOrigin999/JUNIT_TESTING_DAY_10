@@ -49,7 +49,7 @@ public class UserRegistationTest {
 	// Validate Password
 	@Test
 	public void passwordTest() {
-		System.out.println("Enter password minimum 8 Digit::");
+		System.out.println("Enter Password::");
 		String str = sc.next();
 		boolean result = user.passwordValidation(str);
 		boolean excepted = true;

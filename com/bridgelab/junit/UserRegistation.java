@@ -56,8 +56,7 @@ public class UserRegistation {
 	// Passwword Validation
 	public boolean passwordValidation(String str) {
 		String password = str;
-		String regex="^[a-zA-Z]{8,15}$";
-		//String regex = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+		String regex = "^(?=.*[A-Z])[a-zA-Z]{8,}$";
 		Pattern p = Pattern.compile(regex);
 		if (password == null) {
 			return false;
