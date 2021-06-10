@@ -27,4 +27,14 @@ public class UserRegistationTest {
 		boolean excepted = true;
 		assertEquals(excepted, result);
 	}
+
+	// Validate Email
+	@Test
+	public void validaeEmailTest() {
+		String str = "abc.xyz@bl.co.in";
+		boolean result = user.validateEmail(str);
+		boolean excepted = true;
+		assertEquals(excepted, result);
+	}
+
 }

@@ -29,4 +29,16 @@ public class UserRegistation {
 		return m.matches();
 	}
 
+	// Validate Email Address
+	public boolean validateEmail(String str) {
+		String emailAdd = str;
+		String regex = "^[A-Za-z+.]+@[a-zA-Z.]+[a-zA-Z]{2,6}$";
+		Pattern p = Pattern.compile(regex);
+		if (emailAdd == null) {
+			return false;
+		}
+		Matcher m = p.matcher(emailAdd);
+		return m.matches();
+	}
+
 }
