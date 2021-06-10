@@ -45,4 +45,14 @@ public class UserRegistationTest {
 		boolean excepted = true;
 		assertEquals(excepted, result);
 	}
+
+	// Validate Password
+	@Test
+	public void passwordTest() {
+		System.out.println("Enter password minimum 8 Digit::");
+		String str = sc.next();
+		boolean result = user.passwordValidation(str);
+		boolean excepted = true;
+		assertEquals(excepted, result);
+	}
 }

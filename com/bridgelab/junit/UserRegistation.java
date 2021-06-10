@@ -52,4 +52,17 @@ public class UserRegistation {
 		Matcher m = p.matcher(phoneNumber);
 		return m.matches();
 	}
+
+	// Passwword Validation
+	public boolean passwordValidation(String str) {
+		String password = str;
+		String regex="^[a-zA-Z]{8,15}$";
+		//String regex = "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+		Pattern p = Pattern.compile(regex);
+		if (password == null) {
+			return false;
+		}
+		Matcher m = p.matcher(password);
+		return m.matches();
+	}
 }
