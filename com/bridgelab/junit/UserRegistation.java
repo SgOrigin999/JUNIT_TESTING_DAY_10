@@ -64,4 +64,22 @@ public class UserRegistation {
 		Matcher m = p.matcher(password);
 		return m.matches();
 	}
+
+	// Email Sample Validation
+	public boolean emailValidation(String str) {
+		String email = str;
+		String regex = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+		Pattern p = Pattern.compile(regex);
+		if (email == null) {
+			return false;
+		}
+		Matcher m = p.matcher(email);
+		boolean result = m.matches();
+		if (result == true) {
+			System.out.println("Email is Valid::" + email);
+		} else {
+			System.out.println("Email is Not Valid::" + email);
+		}
+		return m.matches();
+	}
 }

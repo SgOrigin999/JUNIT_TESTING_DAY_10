@@ -55,4 +55,14 @@ public class UserRegistationTest {
 		boolean excepted = true;
 		assertEquals(excepted, result);
 	}
+
+	// Email Sample Validation
+	@Test
+	public void emailValidatorTest() {
+		System.out.println("Enter Email To Validate::");
+		String str = sc.nextLine();
+		boolean result = user.emailValidation(str);
+		boolean excepted = true;
+		assertEquals(excepted, result);
+	}
 }
