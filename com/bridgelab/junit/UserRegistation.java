@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 @SuppressWarnings("unused")
 public class UserRegistation {
-	// Valiadate First Name
+	// Validate First Name
 	public boolean validateFirstName(String str) {
 		String firstName = str;
 		String regex = "^[A-Z]{1}[a-z]{2,15}$";
@@ -53,7 +53,7 @@ public class UserRegistation {
 		return m.matches();
 	}
 
-	// Passwword Validation
+	// Password Validation
 	public boolean passwordValidation(String str) {
 		String password = str;
 		String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
@@ -68,26 +68,29 @@ public class UserRegistation {
 	// Email Sample Validation
 	public boolean emailValidation(String str) {
 		String email = str;
-		String regex = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+		String regex = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.{1}[a-z] {2,})$";
 		Pattern p = Pattern.compile(regex);
 		if (email == null) {
 			return false;
 		}
 		Matcher m = p.matcher(email);
+		boolean result = m.matches();
 		return m.matches();
 	}
-	//Validate First,Last Name Email,Mobile and Password With Message
+
+	// Validate First,Last Name Email,Mobile and Password With Message
 	public String validateUserEntryDataWithMessage(String firstName, String lastName, String email, String mobileNumber,
 			String password) {
-		String fName=firstName;
-		String lName=lastName;
-		String emaild=email;
-		String mNumber=mobileNumber;
-		String userPassword=password;
-		if(validateFirstName(fName) & validateLasttName(lName) & emailValidation(emaild) & phoneNumber(mNumber) & passwordValidation(userPassword)) {
+		String fName = firstName;
+		String lName = lastName;
+		String emaild = email;
+		String mNumber = mobileNumber;
+		String userPassword = password;
+		if (validateFirstName(fName) & validateLasttName(lName) & emailValidation(emaild) & phoneNumber(mNumber)
+				& passwordValidation(userPassword)) {
 			return "Happy";
-		}else {
-		return "Sad";	
+		} else {
+			return "Sad";
 		}
 	}
 }

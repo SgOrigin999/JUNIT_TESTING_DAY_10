@@ -2,13 +2,44 @@ package com.bridgelab.junit;
 
 import static org.junit.Assert.assertEquals;
 import java.util.Scanner;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class UserRegistationTest {
 	UserRegistation user = new UserRegistation();
 	Scanner sc = new Scanner(System.in);
 
-	// Valiadate First Name
+	// Validate Multiple Entry of Email Address Using Parameterized Test
+	@ParameterizedTest(name = "#{index} - Run test with email = {0}")
+	@MethodSource("validEmailProvider")
+	public void validateMultipleEntryOfValidEmailAddress(String email) {
+		boolean result = user.emailValidation(email);
+		boolean excepted = true;
+		assertEquals(excepted, result);
+	}
+
+	@ParameterizedTest(name = "#{index} - Run test with email = {0}")
+	@MethodSource("inValidEmailProvider")
+	public void validateMultipleEntryOfInvalidEmailAddress(String email) {
+		boolean result = user.emailValidation(email);
+		boolean excepted = false;
+		assertEquals(excepted, result);
+	}
+
+	static Stream<String> validEmailProvider() {
+		return Stream.of("abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net",
+				"abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com");
+	}
+
+	static Stream<String> inValidEmailProvider() {
+		return Stream.of("abc", "abc@.com.my", "abc100@yahoo.a", "abc100@.com", "abc100@.com.com", ".abc@abc.com",
+				"abc()*@gmail.com", "abc@%*.com", "abc..100@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com",
+				"abc@gmail.com.1a", "abc@gmail.com.aa.au");
+	}
+
+	// Validate First Name
 	@Test
 	public void validateFirstNameTest() {
 		System.out.println("Enter First Name::");
@@ -65,21 +96,22 @@ public class UserRegistationTest {
 		boolean excepted = true;
 		assertEquals(excepted, result);
 	}
-	//Validate First,Last Name Email,Mobile and Password With Message
+
+	// Validate First,Last Name Email,Mobile and Password With Message
 	@Test
 	public void validateUserEntryDataWithMessageTest() {
 		System.out.println("Enter First Name::");
-		String firstName= sc.nextLine();
+		String firstName = sc.nextLine();
 		System.out.println("Enter First Name::");
-		String lastName= sc.nextLine();
+		String lastName = sc.nextLine();
 		System.out.println("Enter Email::");
-		String email= sc.nextLine();
+		String email = sc.nextLine();
 		System.out.println("Enter Mobile Number::");
-		String mobileNumber= sc.nextLine();
+		String mobileNumber = sc.nextLine();
 		System.out.println("Enter Password::");
-		String password= sc.nextLine();
-		String result = user.validateUserEntryDataWithMessage(firstName,lastName,email,mobileNumber,password);
-		String excepted ="Happy";
+		String password = sc.nextLine();
+		String result = user.validateUserEntryDataWithMessage(firstName, lastName, email, mobileNumber, password);
+		String excepted = "Happy";
 		assertEquals(excepted, result);
 	}
 }
